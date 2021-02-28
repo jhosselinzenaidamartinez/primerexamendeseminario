@@ -5,7 +5,7 @@ var USER = new UserModel();
 var jsonwebtoken = new JsonWebTokenManagement();
 class IndexController {
   constructor() {}
-  //services
+  
   index(request, response) {
     response.status(200).json({ msn: "Api Test v. 2.0" });
   }
