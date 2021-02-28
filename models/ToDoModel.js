@@ -3,7 +3,6 @@ class ToDoModel{
     constructor(){
         this.Schema = mongoose.Schema;
         this.TodoSchema = new this.Schema({
-            /**name S description S date D hour S done B */
             name: String,
             description: String,
             date: Date,
