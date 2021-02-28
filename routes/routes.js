@@ -2,7 +2,10 @@ import express from "express";
 import IndexController from "../controller/indexController.js";
 import UserController from "../controller/userController.js";
 import RolesController from "../controller/rolesContoller.js";
+import ToDoController from "../controller/todoController.js";
 import JsonWebTokenManagement from "../middleware/JsonWebTokenManagement.js";
+import ToDoModel from "../models/ToDoModel.js";
+import  RequestTimeout  from "http-errors";
 
 var router = express.Router();
 var indexControler = new IndexController();
@@ -37,8 +40,14 @@ router.get("/roles", rolesController.getRol);
 router.get("/roles/:key", rolesController.getRol);
 router.put("/roles/:id", rolesController.updateRol);
 router.delete("/roles/:id", rolesController.deleteRol);
-/* 
+/*  
 Implemente 
 */
-
+var todoController = new ToDoController();
+router.get("/tarea", todoController.getTarea);
+router.post("/tarea", todoController.createTarea);
+router.put("/tarea/:id", todoController.updateTarea);
+router.delete("/tarea/:id", todoController.deleteTarea);
+//router.put("/done/:id", todoController.updateDone);
+router.put("/done/:id", todoController.updateDone);
 export default router;
